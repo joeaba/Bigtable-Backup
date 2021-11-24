@@ -1,9 +1,30 @@
- gcloud config configurations create tour-de-sol-bt
- gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com
- gcloud config set project tour-de-sol
- export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/testnet_bt_readwrite.json 
- gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/home/joe/testnet_bt_readwrite.json 
- gcloud bigtable backups create Backup-Testing --instance=solana-ledger --cluster=solana-ledger-c1 --table=test2 --retention-period=3d --project=tour-de-sol
+name : minimal 
+
+on:
+  push:
+    branches:  [master]
+  pull_request:
+    branches:  [master]
+
+jobs:
+  Export_Github_Repositories:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - run: 
+           ./script.py
+
+
+# gcloud config configurations create tour-de-sol-bt
+#  gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com
+#  gcloud config set project tour-de-sol
+#  export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/testnet_bt_readwrite.json 
+#  gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/home/joe/testnet_bt_readwrite.json 
+#  gcloud bigtable backups create Backup-Testing --instance=solana-ledger --cluster=solana-ledger-c1 --table=test2 --retention-period=3d --project=tour-de-sol
   
 # gcloud config configurations create solana-devnet-bt
 # gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com
