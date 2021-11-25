@@ -2,9 +2,9 @@ name : minimal
 
 on:
   push:
-    branches:  [master]
+    branches:  [main]
   pull_request:
-    branches:  [master]
+    branches:  [main]
 
 jobs:
   Export_Github_Repositories:
@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
+#         with:
+#           fetch-depth: 2
 
       - run: 
            ./script.py
