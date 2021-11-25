@@ -1,5 +1,6 @@
 steps:
-  - name: "build"
+  - label: "build"
+    command: "sleep 1s"
     timeout_in_minutes: 120
     agents:
-      - "bigtable=backup"
+      bigtable: "backup"
