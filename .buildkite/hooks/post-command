@@ -27,7 +27,7 @@ else
   echo "Influx data point: $point"
   if [[ -z '' ]]; then
     echo running the if condition
-    ./pipeline.yml
+    sudo ./pipeline.yml
   else
     echo running the else condition
   fi
