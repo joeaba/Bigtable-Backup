@@ -1,0 +1,1 @@
+export CI_BUILD_START=$(date +%s)
