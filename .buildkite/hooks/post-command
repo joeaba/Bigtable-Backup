@@ -25,7 +25,7 @@ else
 
   point="job_stats,$point_tags $point_fields"
   echo "Influx data point: $point"
-  if [[ -z  ]]; then
+  if [[ -z '' ]]; then
     echo running the if condition
   else
     echo running the else condition
