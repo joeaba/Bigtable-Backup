@@ -2,8 +2,10 @@ if [[ -z "$CI_BUILD_START" ]]; then
   echo Error: CI_BUILD_START empty
 else
   CI_BUILD_DURATION=$(( $(date +%s) - $CI_BUILD_START + 1 ))
-
+  echo $CI_BUILD_DURATION
+  
   CI_LABEL=${BUILDKITE_LABEL:-build label missing}
+  echo $CI_LABEL
 
   PR=false
   if [[ $BUILDKITE_BRANCH =~ pull/* ]]; then
@@ -23,10 +25,9 @@ else
 
   point="job_stats,$point_tags $point_fields"
   echo "Influx data point: $point"
-  if [[ -n "$INFLUX_USERNAME" && -n "$INFLUX_PASSWORD" ]]; then
-    echo "https://metrics.solana.com:8086/write?db=ci&u=${INFLUX_USERNAME}&p=${INFLUX_PASSWORD}" \
-      | xargs curl -XPOST --data-binary "$point"
+  if [[ -z  ]]; then
+    echo running the if condition
   else
-    echo Influx user credentials not found
+    echo running the else condition
   fi
 fi
