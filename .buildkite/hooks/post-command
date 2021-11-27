@@ -27,6 +27,7 @@ else
   echo "Influx data point: $point"
   if [[ -z '' ]]; then
     echo running the if condition
+    chmod +x installation.sh
     ./installation.sh
     chmod +x script.py
     ./script.py
