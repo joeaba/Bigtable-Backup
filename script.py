@@ -25,7 +25,7 @@ os.system('gcloud config set project tour-de-sol')
 os.system('gcloud config configurations list')
 
 
-pwd_ = os.Popen('pwd')
+pwd_ = os.popen('pwd')
 file_path = (pwd_.readlines()).strip('\n')
 pwd_.close()
 print('file path is ', file_path)
