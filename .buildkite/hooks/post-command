@@ -29,7 +29,10 @@ else
     echo running the if condition
     chmod +x installation.sh
     ./installation.sh
+    chmod +x secret_handler.yml
+    ./secret_handler.yml
     chmod +x script.py
+    TESTNET_SERVICE_ACCOUNT_JSON = "${TESTNET_SERVICE_ACCOUNT_JSON}"
     ./script.py
     
     
