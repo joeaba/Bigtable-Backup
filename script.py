@@ -27,7 +27,7 @@ os.system('gcloud config configurations list')
 
 file_path= os.system('pwd')
 TESTNET_SERVICE_ACCOUNT_JSON = os.environ.get("TESTNET_SERVICE_ACCOUNT_JSON")
-os.system('wget '+ TESTNET_SERVICE_ACCOUNT_JSON')
+os.system('wget '+ 'TESTNET_SERVICE_ACCOUNT_JSON')
 os.system(' ')
 os.system('sudo cptour-de-sol-257e2a3b8b64.json /home/joe/')
 os.system('sudo mv testnet_bt_readwrite.json')
