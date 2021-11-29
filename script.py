@@ -26,7 +26,7 @@ os.system('gcloud config configurations list')
 
 
 pwd_ = os.popen('pwd')
-file_path = (pwd_.readlines()).strip('\n')
+file_path = (pwd_.readlines())[0].strip('\n')
 pwd_.close()
 print('file path is ', file_path)
 TESTNET_SERVICE_ACCOUNT_JSON = os.environ.get("TESTNET_SERVICE_ACCOUNT_JSON")
