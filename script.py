@@ -17,15 +17,23 @@ os.system('echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://pa
 os.system('curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -')
 os.system('sudo apt-get update && sudo apt-get install google-cloud-sdk')
 # os.system('gcloud init')
-os.system('')
+# os.system('')
 
-# To create a configuration to use while working on the testnet project
-os.system('gcloud config configurations create tour-de-sol-bt')
+# To create a configuration to use while working on the testnet projectos.system('gcloud config configurations create tour-de-sol-bt')
 os.system('gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com')
 os.system('gcloud config set project tour-de-sol')
 os.system('gcloud config configurations list')
-#os.system('export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/testnet_bt_readwrite.json ')
-#os.system('gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/home/joe/testnet_bt_readwrite.json')
-#os.system('gcloud bigtable backups create Backup-Testing --instance=solana-ledger --cluster=solana-ledger-c1 --table=test2 --retention-period=3d --project=tour-de-sol')
+
+
+file_path= os.system('pwd')
+TESTNET_SERVICE_ACCOUNT_JSON = secret.TESTNET_SERVICE_ACCOUNT_JSON
+os.system('wget '+ TESTNET_SERVICE_ACCOUNT_JSON')
+os.system(' ')
+os.system('sudo cptour-de-sol-257e2a3b8b64.json /home/joe/')
+os.system('sudo mv testnet_bt_readwrite.json')
+os.system('export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/testnet_bt_readwrite.json ')
+os.system('gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/home/joe/testnet_bt_readwrite.json')
+
+os.system('gcloud bigtable backups create Backup-Testing --instance=solana-ledger --cluster=solana-ledger-c1 --table=test2 --retention-period=3d --project=tour-de-sol')
 
 # os.system('')
