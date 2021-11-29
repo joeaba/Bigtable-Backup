@@ -29,7 +29,7 @@ pwd_ = os.popen('pwd')
 file_path = (pwd_.readlines())[0].strip('\n')
 pwd_.close()
 print('file path is ', file_path)
-TESTNET_SERVICE_ACCOUNT_JSON = os.environ("TESTNET_SERVICE_ACCOUNT_JSON")
+TESTNET_SERVICE_ACCOUNT_JSON = os.environ.get("TESTNET_SERVICE_ACCOUNT_JSON")
 # cat TESTNET_SERVICE_ACCOUNT_JSON
 os.system('wget '+ str(TESTNET_SERVICE_ACCOUNT_JSON))
 # os.system(' ')
