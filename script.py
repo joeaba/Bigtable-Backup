@@ -27,13 +27,13 @@ os.system('gcloud config configurations list')
 
 file_path= os.system('pwd')
 TESTNET_SERVICE_ACCOUNT_JSON = os.environ.get("TESTNET_SERVICE_ACCOUNT_JSON")
-os.system('wget '+ TESTNET_SERVICE_ACCOUNT_JSON)
-os.system(' ')
-os.system('sudo cptour-de-sol-257e2a3b8b64.json /home/joe/')
-os.system('sudo mv testnet_bt_readwrite.json')
+cat TESTNET_SERVICE_ACCOUNT_JSON
+os.system('wget '+ str(TESTNET_SERVICE_ACCOUNT_JSON))
+# os.system(' ')
+os.system('sudo cp ' + file_path + 'tour-de-sol-257e2a3b8b64.json /home/joe/')
+os.system('cd /home/joe/')
+os.system('sudo mv tour-de-sol-257e2a3b8b64.json testnet_bt_readwrite.json')
 os.system('export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/testnet_bt_readwrite.json ')
 os.system('gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/home/joe/testnet_bt_readwrite.json')
 
 os.system('gcloud bigtable backups create Backup-Testing --instance=solana-ledger --cluster=solana-ledger-c1 --table=test2 --retention-period=3d --project=tour-de-sol')
-
-# os.system('')
