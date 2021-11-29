@@ -26,11 +26,12 @@ os.system('gcloud config configurations list')
 
 
 file_path= os.system('pwd')
+print('file path is ', file_path)
 TESTNET_SERVICE_ACCOUNT_JSON = os.environ.get("TESTNET_SERVICE_ACCOUNT_JSON")
 # cat TESTNET_SERVICE_ACCOUNT_JSON
 os.system('wget '+ str(TESTNET_SERVICE_ACCOUNT_JSON))
 # os.system(' ')
-os.system('sudo cp ' + file_path + 'tour-de-sol-257e2a3b8b64.json /home/joe/')
+os.system('sudo cp ' + str(file_path) + 'tour-de-sol-257e2a3b8b64.json /home/joe/')
 os.system('cd /home/joe/')
 os.system('sudo mv tour-de-sol-257e2a3b8b64.json testnet_bt_readwrite.json')
 os.system('export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/testnet_bt_readwrite.json ')
