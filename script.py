@@ -25,7 +25,9 @@ os.system('gcloud config set project tour-de-sol')
 os.system('gcloud config configurations list')
 
 
-file_path= os.system('pwd')
+pwd_ = os.Popen('pwd')
+file_path = (pwd_.readlines()).strip('\n')
+pwd_.close()
 print('file path is ', file_path)
 TESTNET_SERVICE_ACCOUNT_JSON = os.environ.get("TESTNET_SERVICE_ACCOUNT_JSON")
 # cat TESTNET_SERVICE_ACCOUNT_JSON
