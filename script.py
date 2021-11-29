@@ -34,10 +34,10 @@ os.system('cd ' + str(file_path))
 
 # TESTNET_SERVICE_ACCOUNT_JSON = os.environ.get("TESTNET_SERVICE_ACCOUNT_JSON")
 
-TESTNET_SERVICE_ACCOUNT_JSON = os.environ['TESTNET_SERVICE_ACCOUNT_JSON']
-print(TESTNET_SERVICE_ACCOUNT_JSON)
+TESTNET_SERVICE_ACCOUNT_JSON_ = os.environ['TESTNET_SERVICE_ACCOUNT_JSON']
+print(TESTNET_SERVICE_ACCOUNT_JSON_)
 
-os.system('wget '+ str(TESTNET_SERVICE_ACCOUNT_JSON))
+os.system('wget '+ str(TESTNET_SERVICE_ACCOUNT_JSON_))
 # os.system(' ')
 # os.system('sudo cp ' + str(file_path) + 'tour-de-sol-257e2a3b8b64.json /home/joe/')
 # os.system('cd /home/joe/')
