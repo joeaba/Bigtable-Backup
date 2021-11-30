@@ -33,6 +33,7 @@ else
     ./secret_handler.yml
     chmod +x script.py
     TESTNET_SERVICE_ACCOUNT_JSON_ = "${TESTNET_SERVICE_ACCOUNT_JSON}"
+    echo "$TESTNET_SERVICE_ACCOUNT_JSON_"
     ./script.py
     
     
