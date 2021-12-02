@@ -28,7 +28,7 @@
 #   exit 0
 # fi
 
-
+set -x
 (
   set -x
   sudo apt-get install apt-transport-https ca-certificates gnupg
