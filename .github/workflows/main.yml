@@ -1,4 +1,4 @@
-name: secret_handler.yml
+name: main.yml
 
 on:
   push:
