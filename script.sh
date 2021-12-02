@@ -38,10 +38,10 @@
   if [[ -n $status ]]; then
     echo "Installed the google-cloud-sdk"
     exit 0
-  else
-    echo "google-cloud-sdk is previously installed on this system"
-    exit 0
-  fi
+#   else
+#     echo "google-cloud-sdk is previously installed on this system"
+#     exit 0
+#   fi
   gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com
   gcloud config set project tour-de-sol
   gcloud config configurations list
@@ -55,4 +55,4 @@
   sudo mv tour-de-sol-257e2a3b8b64.json testnet_bt_readwrite.json
   export GOOGLE_APPLICATION_CREDENTIALS=/home/testnet_bt_readwrite.json
   gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/home/testnet_bt_readwrite.json
-
+)
