@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -x
+trap read debug
 (
 #   set -x
   sudo apt-get install apt-transport-https ca-certificates gnupg
