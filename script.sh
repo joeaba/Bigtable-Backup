@@ -3,18 +3,21 @@
 set -x
 trap read debug
 (
-#   set -x
+  set -x
   sudo apt-get install apt-transport-https ca-certificates gnupg
+  echo "sudo apt-get install apt-transport-https ca-certificates gnupg"
   echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
   curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+  echo "curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -"
   status = $(sudo apt-get update && sudo apt-get install google-cloud-sdk
-  if [[ -n $status ]]; then
-    echo "Installed the google-cloud-sdk"
-    exit 0
-  else
-    echo "google-cloud-sdk is previously installed on this system"
-  fi
+#   if [[ -n $status ]]; then
+#     echo "Installed the google-cloud-sdk"
+#     exit 0
+#   else
+#     echo "google-cloud-sdk is previously installed on this system"
+#   fi
   gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com
+  echo "gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com"
   gcloud config set project tour-de-sol
   gcloud config configurations list
   cd /home/
