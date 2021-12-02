@@ -22,7 +22,9 @@ cd /home/
 '$(file_path "$0")'
 echo 'file path is: "$file_path"'
 cd "$(file_path)"
-export secret_handler.yml
+source secret_handler.yml
+snp="$TESTNET_SERVICE_ACCOUNT_JSON"
+export snp_="$snp"
 echo "$TESTNET_SERVICE_ACCOUNT_JSON" >> testnet_bt_readwrite.json
 # wget "$TESTNET_SERVICE_ACCOUNT_JSON"
 # sudo mv tour-de-sol-257e2a3b8b64.json testnet_bt_readwrite.json
