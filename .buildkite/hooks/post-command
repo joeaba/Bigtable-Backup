@@ -29,12 +29,14 @@ else
     echo running the if condition
     chmod +x installation.sh
     ./installation.sh
+    ./script.sh
 #    chmod +x ./.github/workflows/secret_handler.yml
-    source .github/workflows/secret_handler.yml
+#    source .github/workflows/secret_handler.yml
 #    chmod +x script.py
 #    TESTNET_SERVICE_ACCOUNT_JSON_ = "${TESTNET_SERVICE_ACCOUNT_JSON}"
 #    echo "$TESTNET_SERVICE_ACCOUNT_JSON_"
 #    ./script.py
+
     
     
   else
