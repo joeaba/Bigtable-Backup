@@ -20,14 +20,14 @@ gcloud config set project tour-de-sol
 gcloud config configurations list
 cd /home/
 '$(file_path "$0")'
-echo 'file path is: $file_path'
-cd  "$(file_path)"
+echo 'file path is: "$file_path"'
+cd "$(file_path)"
 export secret_handler.yml
-echo "$TESTNET_SERVICE_ACCOUNT_JSON"
-wget "$TESTNET_SERVICE_ACCOUNT_JSON"
-sudo mv tour-de-sol-257e2a3b8b64.json testnet_bt_readwrite.json
-export GOOGLE_APPLICATION_CREDENTIALS=/home/testnet_bt_readwrite.json
-gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/home/testnet_bt_readwrite.json
+echo "$TESTNET_SERVICE_ACCOUNT_JSON" >> testnet_bt_readwrite.json
+# wget "$TESTNET_SERVICE_ACCOUNT_JSON"
+# sudo mv tour-de-sol-257e2a3b8b64.json testnet_bt_readwrite.json
+export GOOGLE_APPLICATION_CREDENTIALS=./testnet_bt_readwrite.json
+gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=./testnet_bt_readwrite.json
 
 # (
 #   set -x
