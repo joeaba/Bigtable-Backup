@@ -56,3 +56,6 @@
   export GOOGLE_APPLICATION_CREDENTIALS=/home/testnet_bt_readwrite.json
   gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/home/testnet_bt_readwrite.json
 )
+echo ==========================================================
+echo Success
+exit 0
