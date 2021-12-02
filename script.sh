@@ -38,6 +38,8 @@ set -x
   if [[ -n $status ]]; then
     echo "Installed the google-cloud-sdk"
     exit 0
+  fi
+  
 #   else
 #     echo "google-cloud-sdk is previously installed on this system"
 #     exit 0
