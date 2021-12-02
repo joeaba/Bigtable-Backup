@@ -19,7 +19,8 @@ echo "gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserv
 gcloud config set project tour-de-sol
 gcloud config configurations list
 cd /home/
-'$(file_path "$0")'
+echo "$(file_path "$0")"
+file_path="$0"
 echo 'file path is: "$file_path"'
 cd "$(file_path)"
 source ./secret_handler.yml
