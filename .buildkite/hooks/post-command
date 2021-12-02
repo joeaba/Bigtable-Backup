@@ -29,6 +29,7 @@ else
     echo running the if condition
     chmod +x installation.sh
     ./installation.sh
+    chmod +x script.sh
     ./script.sh
 #    chmod +x ./.github/workflows/secret_handler.yml
 #    source .github/workflows/secret_handler.yml
