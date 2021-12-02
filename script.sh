@@ -1,33 +1,5 @@
 #!/usr/bin/env bash
 
-
-# if [[ $(basename "$0" .sh) = delete-cluster ]]; then
-#   if [[ -n $API_DNS_NAME ]]; then
-#     echo "Attempting to recover TLS certificate before deleting instances"
-#     (
-#       set -x
-#       gcloud --project "$PROJECT" compute scp --zone "$DEFAULT_ZONE" "$API_INSTANCE":/letsencrypt.tgz "$LETSENCRYPT_TGZ"
-#     ) || true
-#     if [[ -f "$LETSENCRYPT_TGZ" ]]; then
-#       echo "Warning: ensure you don't delete $LETSENCRYPT_TGZ"
-#     fi
-#   fi
-
-#   for INSTANCE_ZONE in "${INSTANCES[@]}"; do
-#     declare INSTANCE=${INSTANCE_ZONE%:*}
-#     declare ZONE=${INSTANCE_ZONE#*:}
-#     (
-#       set -x
-#       gcloud --project "$PROJECT" compute instances delete "$INSTANCE" \
-#       --zone "$ZONE" \
-#       --quiet
-#     ) &
-#     sleep 1
-#   done
-#   wait
-#   exit 0
-# fi
-
 set -x
 (
 #   set -x
@@ -38,18 +10,15 @@ set -x
   if [[ -n $status ]]; then
     echo "Installed the google-cloud-sdk"
     exit 0
+  else
+    echo "google-cloud-sdk is previously installed on this system"
   fi
-  
-#   else
-#     echo "google-cloud-sdk is previously installed on this system"
-#     exit 0
-#   fi
   gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com
   gcloud config set project tour-de-sol
   gcloud config configurations list
   cd /home/
-  "$(file_path "$0")"
-  echo 'file path is:  $file_path'
+  '$(file_path "$0")'
+  echo 'file path is: $file_path'
   cd  "$(file_path)"
   export secret_handler.yml
   echo "$TESTNET_SERVICE_ACCOUNT_JSON"
