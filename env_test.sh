@@ -11,7 +11,7 @@ cat use_this_key
 
 
 #copying the file to buildkite agent
-sudo scp -i use_this_key ./testnet_bt_readwrite.json joe@34.83.118.104:/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup
+# sudo scp -i use_this_key ./testnet_bt_readwrite.json joe@34.83.118.104:/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup
 # sudo scp ./testnet_bt_readwrite.json joe@34.83.118.104:/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup
 
 
