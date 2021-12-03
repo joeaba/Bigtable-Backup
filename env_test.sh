@@ -5,6 +5,16 @@ cat testnet_bt_readwrite.json
 pwd
 ls
 
+touch use_this_key.txt
+cat <<< "$use_this_key" > use_this_key.txt
+cat use_this_key.txt
+
+
+#copying the file to buildkite agent
+# scp -i use_this_key ./testnet_bt_readwrite.json solana@34.83.118.104:/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup
+sudo scp ./testnet_bt_readwrite.json joe@34.83.118.104:/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup
+
+
 sudo apt-get install apt-transport-https ca-certificates gnupg
 echo "sudo apt-get install apt-transport-https ca-certificates gnupg"
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
@@ -39,7 +49,6 @@ pwd
 #reading the content of the .json file
 cat testnet_bt_readwrite.json
 pwd
-head testnet_bt_readwrite.json
 
 #exporting and authenticating the GCP service account
 export GOOGLE_APPLICATION_CREDENTIALS=./testnet_bt_readwrite.json
