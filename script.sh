@@ -35,9 +35,9 @@ pwd
 # echo "$snp"
 # EOF
 
-touch testnet_bt_readwrite.json
-cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.json
-ls
+# touch testnet_bt_readwrite.json
+# cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.json
+# ls
 
 touch testnet_bt_readwrite.txt
 cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.txt
