@@ -23,15 +23,35 @@ echo "$(file_path "$0")"
 declare file_path="$0"
 echo "file path is: "$file_path""
 cd "$(file_path)"
-declare pwd_="$pwd"
-echo "$pwd_"
+
+#declaring a variable to store the value of the vaiable from the .yml file
+declare snp="$TESTNET_SERVICE_ACCOUNT_JSON"
+echo "snp is "$snp""
+
+#printing credentials inside the file
+cat << EOF >> testnet_bt_readwrite.json
+echo "$snp"
+EOF
+
+#reading the content of the file
+cat testnet_bt_readwrite.json
+
+#printing the pwd and also the content of the directory
 echo "$pwd"
 ls
-cd /home/runner/work/Bigtable-Backup/Bigtable-Backup
-declare pwd_="$pwd"
-echo "$pwd_"
-echo "$pwd"
-ls
+
+
+# declare pwd_="$pwd"
+# echo "$pwd_"
+# echo "$pwd"
+# ls
+# cd /home/runner/work/Bigtable-Backup/Bigtable-Backup
+# declare pwd_="$pwd"
+# echo "$pwd_"
+# echo "$pwd"
+# ls
+
+
 # source ./secret_handler.yml
 # snp="$TESTNET_SERVICE_ACCOUNT_JSON"
 # export snp_="$snp"
