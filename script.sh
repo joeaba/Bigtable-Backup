@@ -14,10 +14,12 @@ status = $(sudo apt-get update && sudo apt-get install google-cloud-sdk )
 #   else
 #     echo "google-cloud-sdk is previously installed on this system"
 #   fi
+
 gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com
 echo "gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com"
 gcloud config set project tour-de-sol
 gcloud config configurations list
+
 # cd /home/
 # echo "$(file_path "$0")"
 declare file_path="$0"
@@ -35,6 +37,8 @@ pwd
 # echo "$snp"
 # EOF
 
+ls /var/lib/buildkite-agent/builds/bigtable-backups-1
+
 # touch testnet_bt_readwrite.json
 # cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.json
 # ls
@@ -47,8 +51,8 @@ ls
 cat testnet_bt_readwrite.json
 head testnet_bt_readwrite.json
 
-cat testnet_bt_readwrite.txt
-head testnet_bt_readwrite.txt
+# cat testnet_bt_readwrite.txt
+# head testnet_bt_readwrite.txt
 
 #printing the pwd and also the content of the directory
 # echo "pwd is: "pwd""
