@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
-touch new_file.json
-cat <<< "$FOO_ROOT" > new_file.json
-cat new_file.json
+touch testnet_bt_readwrite.json
+cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.json
+cat testnet_bt_readwrite.json
+ls
+
