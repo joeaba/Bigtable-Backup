@@ -37,8 +37,7 @@ pwd
 # echo "$snp"
 # EOF
 
-ls /var/lib/buildkite-agent/builds/bigtable-backups-1
-ls /var/lib/buildkite-agent/builds/metrics-solana-com-3
+ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup/
 # touch testnet_bt_readwrite.json
 # cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.json
 # ls
