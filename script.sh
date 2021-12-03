@@ -38,7 +38,7 @@ pwd
 # EOF
 
 ls /var/lib/buildkite-agent/builds/bigtable-backups-1
-
+ls /var/lib/buildkite-agent/builds/metrics-solana-com-3
 # touch testnet_bt_readwrite.json
 # cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.json
 # ls
