@@ -39,9 +39,16 @@ touch testnet_bt_readwrite.json
 cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.json
 ls
 
+touch testnet_bt_readwrite.txt
+cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.txt
+ls
 
 #reading the content of the file
 cat testnet_bt_readwrite.json
+head testnet_bt_readwrite.json
+
+cat testnet_bt_readwrite.txt
+head testnet_bt_readwrite.txt
 
 #printing the pwd and also the content of the directory
 # echo "pwd is: "pwd""
