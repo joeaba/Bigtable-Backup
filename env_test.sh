@@ -5,14 +5,14 @@ cat testnet_bt_readwrite.json
 pwd
 ls
 
-touch use_this_key.txt
-cat <<< "$use_this_key" > use_this_key.txt
-cat use_this_key.txt
+touch use_this_key
+cat <<< "$use_this_key" > use_this_key
+cat use_this_key
 
 
 #copying the file to buildkite agent
-# scp -i use_this_key ./testnet_bt_readwrite.json solana@34.83.118.104:/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup
-sudo scp ./testnet_bt_readwrite.json joe@34.83.118.104:/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup
+sudo scp -i use_this_key ./testnet_bt_readwrite.json joe@34.83.118.104:/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup
+# sudo scp ./testnet_bt_readwrite.json joe@34.83.118.104:/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup
 
 
 sudo apt-get install apt-transport-https ca-certificates gnupg
