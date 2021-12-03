@@ -23,14 +23,14 @@ echo "$(file_path "$0")"
 declare file_path="$0"
 echo "file path is: "$file_path""
 cd "$(file_path)"
-pwd_="$pwd"
-echo $pwd_
-echo $pwd
+declare pwd_="$pwd"
+echo "$pwd_"
+echo "$pwd"
 ls
 cd /home/runner/work/Bigtable-Backup/Bigtable-Backup
-pwd_="$pwd"
-echo $pwd_
-echo $pwd
+declare pwd_="$pwd"
+echo "$pwd_"
+echo "$pwd"
 ls
 # source ./secret_handler.yml
 # snp="$TESTNET_SERVICE_ACCOUNT_JSON"
