@@ -1,0 +1,18 @@
+name: Env tests
+on: push
+
+env:
+  FOO_ROOT: ${{ secrets.TESTNET_SERVICE_ACCOUNT_JSON }}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      FOO_ROOT: ${{ secrets.TESTNET_SERVICE_ACCOUNT_JSON }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Test envs
+        run: |
+             source ./env_test.sh
+        env:
+          FOO_ROOT: ${{ secrets.TESTNET_SERVICE_ACCOUNT_JSON }}
