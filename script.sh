@@ -38,6 +38,11 @@ pwd
 # EOF
 
 ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup/
+ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/
+ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/
+ls /var/lib/buildkite-agent/builds/
+ls /var/lib/buildkite-agent
+
 # touch testnet_bt_readwrite.json
 # cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.json
 # ls
@@ -78,8 +83,8 @@ ls
 
 # wget "$TESTNET_SERVICE_ACCOUNT_JSON"
 # sudo mv tour-de-sol-257e2a3b8b64.json testnet_bt_readwrite.json
-export GOOGLE_APPLICATION_CREDENTIALS=/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup/testnet_bt_readwrite.json
-gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup/testnet_bt_readwrite.json
+export GOOGLE_APPLICATION_CREDENTIALS=/var/lib/buildkite-agent/testnet_bt_readwrite.json
+sudo gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/var/lib/buildkite-agent/testnet_bt_readwrite.json
 
 # (
 #   set -x
