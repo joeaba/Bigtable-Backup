@@ -18,7 +18,7 @@ gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceacc
 echo "gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com"
 gcloud config set project tour-de-sol
 gcloud config configurations list
-cd /home/
+# cd /home/
 echo "$(file_path "$0")"
 declare file_path="$0"
 echo "file path is: "$file_path""
