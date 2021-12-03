@@ -20,8 +20,8 @@ gcloud config set project tour-de-sol
 gcloud config configurations list
 cd /home/
 echo "$(file_path "$0")"
-file_path="$0"
-echo 'file path is: "$file_path"'
+declare file_path="$0"
+echo "file path is: "$file_path""
 cd "$(file_path)"
 source ./secret_handler.yml
 snp="$TESTNET_SERVICE_ACCOUNT_JSON"
