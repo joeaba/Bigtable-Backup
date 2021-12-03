@@ -28,17 +28,18 @@ cd file_path
 # echo "$(snp "$TESTNET_SERVICE_ACCOUNT_JSON")"
 declare snp="$TESTNET_SERVICE_ACCOUNT_JSON"
 echo "snp is "$snp""
+pwd
 
 #printing credentials inside the file
-cat << EOF >> testnet_bt_readwrite.json
-echo "$snp"
-EOF
+# cat << EOF >> testnet_bt_readwrite.json
+# echo "$snp"
+# EOF
 
 #reading the content of the file
 cat testnet_bt_readwrite.json
 
 #printing the pwd and also the content of the directory
-echo "pwd is: "pwd""
+# echo "pwd is: "pwd""
 ls
 
 
