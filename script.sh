@@ -68,8 +68,8 @@ ls
 
 # wget "$TESTNET_SERVICE_ACCOUNT_JSON"
 # sudo mv tour-de-sol-257e2a3b8b64.json testnet_bt_readwrite.json
-export GOOGLE_APPLICATION_CREDENTIALS=./testnet_bt_readwrite.json
-gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=./testnet_bt_readwrite.json
+export GOOGLE_APPLICATION_CREDENTIALS=/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup/testnet_bt_readwrite.json
+gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup/testnet_bt_readwrite.json
 
 # (
 #   set -x
