@@ -23,13 +23,22 @@ echo "$(file_path "$0")"
 declare file_path="$0"
 echo "file path is: "$file_path""
 cd "$(file_path)"
-pwd
+pwd_="$pwd"
+echo $pwd_
+echo $pwd
+ls
+cd /home/runner/work/Bigtable-Backup/Bigtable-Backup
+pwd_="$pwd"
+echo $pwd_
+echo $pwd
 ls
 # source ./secret_handler.yml
-snp="$TESTNET_SERVICE_ACCOUNT_JSON"
-export snp_="$snp"
-echo "$TESTNET_SERVICE_ACCOUNT_JSON" >> testnet_bt_readwrite.json
-cat testnet_bt_readwrite.json
+# snp="$TESTNET_SERVICE_ACCOUNT_JSON"
+# export snp_="$snp"
+# echo "$TESTNET_SERVICE_ACCOUNT_JSON" >> testnet_bt_readwrite.json
+# cat testnet_bt_readwrite.json
+
+
 # wget "$TESTNET_SERVICE_ACCOUNT_JSON"
 # sudo mv tour-de-sol-257e2a3b8b64.json testnet_bt_readwrite.json
 export GOOGLE_APPLICATION_CREDENTIALS=./testnet_bt_readwrite.json
