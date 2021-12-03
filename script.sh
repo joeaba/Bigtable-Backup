@@ -20,12 +20,13 @@ gcloud config set project tour-de-sol
 gcloud config configurations list
 # cd /home/
 echo "$(file_path "$0")"
-declare file_path="$0"
+# declare file_path="$0"
 echo "file path is: "$file_path""
 cd "$(file_path)"
 
 #declaring a variable to store the value of the vaiable from the .yml file
-declare snp="$TESTNET_SERVICE_ACCOUNT_JSON"
+echo "$(snp "$TESTNET_SERVICE_ACCOUNT_JSON")"
+# declare snp="$TESTNET_SERVICE_ACCOUNT_JSON"
 echo "snp is "$snp""
 
 #printing credentials inside the file
