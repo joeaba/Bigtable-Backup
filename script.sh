@@ -22,7 +22,7 @@ gcloud config configurations list
 # echo "$(file_path "$0")"
 declare file_path="$0"
 echo "file path is: "$file_path""
-cd "$(file_path)"
+cd file_path
 
 #declaring a variable to store the value of the vaiable from the .yml file
 # echo "$(snp "$TESTNET_SERVICE_ACCOUNT_JSON")"
@@ -38,7 +38,7 @@ EOF
 cat testnet_bt_readwrite.json
 
 #printing the pwd and also the content of the directory
-echo "$pwd"
+echo "pwd is: "pwd""
 ls
 
 
