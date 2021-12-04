@@ -98,8 +98,12 @@ gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.
 #command to create the bigtable backup
 gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
 --cluster=solana-ledger-c1 \
---table=test2 \
 --retention-period=3d
+
+# gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
+# --cluster=solana-ledger-c1 \
+# --table=test2 \
+# --retention-period=3d
 
 
 
