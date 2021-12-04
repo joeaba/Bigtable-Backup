@@ -42,27 +42,25 @@ pwd
 # echo "$snp"
 # EOF
 
- sudo ifconfig
-sudo ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup/
-sudo ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/
-sudo ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/
-sudo ls /var/lib/buildkite-agent/builds/
-sudo ls /var/lib/buildkite-agent
-
-sudo ls /home/anmesh/
+#testing for the debian system
+# sudo ifconfig
+# sudo ls /var/lib/buildkite-agent/builds/bigtable-backup-1/testing-bigtable/bigtable-backup
+# sudo ls /var/lib/buildkite-agent/builds/bigtable-backup-1/testing-bigtable/
+# sudo ls /var/lib/buildkite-agent/builds/bigtable-backup-1/
+# sudo ls /var/lib/buildkite-agent/builds/
+# sudo ls /var/lib/buildkite-agent
+# sudo ls /home/anmesh/
 
 # touch testnet_bt_readwrite.json
 # cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.json
 # ls
-
-touch testnet_bt_readwrite.txt
-cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.txt
-ls
+# touch testnet_bt_readwrite.txt
+# cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.txt
+# ls
 
 #reading the content of the file
 cat testnet_bt_readwrite.json
 head testnet_bt_readwrite.json
-
 # cat testnet_bt_readwrite.txt
 # head testnet_bt_readwrite.txt
 
@@ -91,8 +89,8 @@ ls
 
 # wget "$TESTNET_SERVICE_ACCOUNT_JSON"
 # sudo mv tour-de-sol-257e2a3b8b64.json testnet_bt_readwrite.json
-export GOOGLE_APPLICATION_CREDENTIALS=/var/lib/buildkite-agent/testnet_bt_readwrite.json
-sudo gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/var/lib/buildkite-agent/testnet_bt_readwrite.json
+export GOOGLE_APPLICATION_CREDENTIALS=/var/lib/buildkite-agent/builds/bigtable-backup-1/testing-bigtable/bigtable-backup/testnet_bt_readwrite.json
+sudo gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/var/lib/buildkite-agent/builds/bigtable-backup-1/testing-bigtable/bigtable-backup/testnet_bt_readwrite.json
 
 # (
 #   set -x
