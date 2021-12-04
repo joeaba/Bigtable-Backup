@@ -3,4 +3,4 @@ steps:
     command: "sleep 1s"
     timeout_in_minutes: 120
     agents:
-      - "queue=bigtable-backup"
+      - "bigtable-backup=true"
