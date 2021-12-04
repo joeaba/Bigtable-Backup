@@ -112,10 +112,10 @@ gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
 # --retention-period=3d
 
 #command to create the same bigtable backup instance for different tables 
-gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
---cluster=solana-ledger-c1 \
---table=test2 \
---retention-period=3d
+# gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
+# --cluster=solana-ledger-c1 \
+# --table=test2 \
+# --retention-period=3d
 
 
 
@@ -124,6 +124,7 @@ sudo gcloud config set account bigtable-backup-read-write@solana-devnet.iam.gser
 sudo gcloud config set project solana-devnet
 sudo gcloud config configurations list
 
+#adding the path to the "GOOGLE_APPLICATION_CREDENTIALS" and also authenticating the service account
 export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/devnet_bt_readwrite.json
 gcloud auth activate-service-account bigtable-backup-read-write@solana-devnet.iam.gserviceaccount.com \
 --key-file=/home/joe/devnet_bt_readwrite.json
