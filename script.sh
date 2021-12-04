@@ -95,6 +95,11 @@ export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/testnet_bt_readwrite.json
 gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com \
 --key-file=/home/joe/testnet_bt_readwrite.json
 
+
+#command to tests whether this Backup exists
+# gcloud bigtable backups exists
+
+
 #command to create the bigtable backup
 gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
 --cluster=solana-ledger-c1 \
@@ -111,6 +116,30 @@ gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
 --cluster=solana-ledger-c1 \
 --table=test2 \
 --retention-period=3d
+
+
+
+#for project=devnet
+sudo gcloud config set account bigtable-backup-read-write@solana-devnet.iam.gserviceaccount.com
+sudo gcloud config set project solana-devnet
+sudo gcloud config configurations list
+
+export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/devnet_bt_readwrite.json
+gcloud auth activate-service-account bigtable-backup-read-write@solana-devnet.iam.gserviceaccount.com \
+--key-file=/home/joe/devnet_bt_readwrite.json
+
+#command to tests whether this Backup exists
+# gcloud bigtable backups exists
+
+#command to create the bigtable backup
+gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
+--cluster=solana-ledger-c1 \
+--table=tx \
+--retention-period=3d
+
+
+
+
 
 
 
