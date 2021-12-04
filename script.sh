@@ -106,8 +106,8 @@ gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
 # --table=test2 \
 # --retention-period=3d
 
-#command to update the same bigtable backup instance for different tables 
-gcloud bigtable backups update solana-bigtable-backup --instance=solana-ledger \
+#command to create the same bigtable backup instance for different tables 
+gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
 --cluster=solana-ledger-c1 \
 --table=test2 \
 --retention-period=3d
