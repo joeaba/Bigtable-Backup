@@ -89,8 +89,19 @@ ls
 
 # wget "$TESTNET_SERVICE_ACCOUNT_JSON"
 # sudo mv tour-de-sol-257e2a3b8b64.json testnet_bt_readwrite.json
+
+#adding the path to the "GOOGLE_APPLICATION_CREDENTIALS" and also authenticating the service account
 export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/testnet_bt_readwrite.json
-sudo gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com --key-file=/home/joe/testnet_bt_readwrite.json
+gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com /
+--key-file=/home/joe/testnet_bt_readwrite.json
+
+#command to create the bigtable backup
+gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger /
+--cluster=solana-ledger-c1 /
+--table=test2 /
+--retention-period=3d
+
+
 
 # (
 #   set -x
