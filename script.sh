@@ -20,17 +20,17 @@ echo "gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserv
 gcloud config set project tour-de-sol
 gcloud config configurations list
 
-# cd /home/
-# echo "$(file_path "$0")"
-declare file_path="$0"
-echo "file path is: "$file_path""
-cd file_path
+# # cd /home/
+# # echo "$(file_path "$0")"
+# declare file_path="$0"
+# echo "file path is: "$file_path""
+# cd file_path
 
-#declaring a variable to store the value of the vaiable from the .yml file
-# echo "$(snp "$TESTNET_SERVICE_ACCOUNT_JSON")"
-declare snp="$TESTNET_SERVICE_ACCOUNT_JSON"
-echo "snp is "$snp""
-pwd
+# #declaring a variable to store the value of the vaiable from the .yml file
+# # echo "$(snp "$TESTNET_SERVICE_ACCOUNT_JSON")"
+# declare snp="$TESTNET_SERVICE_ACCOUNT_JSON"
+# echo "snp is "$snp""
+# pwd
 
 #printing credentials inside the file
 # cat << EOF >> testnet_bt_readwrite.json
