@@ -37,11 +37,14 @@ pwd
 # echo "$snp"
 # EOF
 
-ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup/
-ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/
-ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/
-ls /var/lib/buildkite-agent/builds/
-ls /var/lib/buildkite-agent
+ sudo ifconfig
+sudo ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/bigtable-backup/
+sudo ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/testing-bigtable/
+sudo ls /var/lib/buildkite-agent/builds/metrics-solana-com-3/
+sudo ls /var/lib/buildkite-agent/builds/
+sudo ls /var/lib/buildkite-agent
+
+sudo ls /home/anmesh/
 
 # touch testnet_bt_readwrite.json
 # cat <<< "$TESTNET_SERVICE_ACCOUNT_JSON" > testnet_bt_readwrite.json
