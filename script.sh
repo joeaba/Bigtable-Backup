@@ -102,7 +102,7 @@ gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.
 #command to list the tables inside the bigtable instanace
 listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
 
-for arg in "${(blocks,test2)}"; do
+for arg in blocks,test2; do
   echo $arg
   gcloud bigtable backups create $arg --instance=solana-ledger \
   --cluster=solana-ledger-c1 \
