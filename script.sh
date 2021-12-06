@@ -98,7 +98,7 @@ gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.
 
 
 #command to tests whether this Backup exists
-gcloud bigtable backups list --instances=solana-ledger
+gcloud bigtable backups list --instance=solana-ledger
 
 #command to list the tables inside the bigtable instanace
 listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
@@ -146,7 +146,7 @@ gcloud auth activate-service-account bigtable-backup-read-write@solana-devnet.ia
 --key-file=/home/joe/devnet_bt_readwrite.json
 
 #command to tests whether this Backup exists
-gcloud bigtable backups list --instances=solana-ledger
+gcloud bigtable backups list --instance=solana-ledger
 
 #command to list the tables inside the bigtable instanace
 listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
@@ -179,7 +179,7 @@ gcloud auth activate-service-account bigtable-backup-read-write@mainnet-beta.iam
 --key-file=/home/joe/mainnet-beta_bt_readwrite.json
 
 #command to tests whether this Backup exists
-gcloud bigtable backups exists
+gcloud bigtable backups --instance=solana-ledger
 
 #command to list the tables inside the bigtable instanace
 listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
