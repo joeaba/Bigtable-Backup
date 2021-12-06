@@ -97,10 +97,13 @@ gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.
 
 
 #command to tests whether this Backup exists
-# gcloud bigtable backups exists
+gcloud bigtable backups exists
 
 #command to list the tables inside the bigtable instanace
 listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
+
+
+#command to loop over the "$arg" in the "$listing" variable & create the backup for the tables inside the testnet bigtable instance
 for arg in "${listing[@]}" 
 do
   for args in $arg; do
@@ -112,66 +115,85 @@ do
     done
   done
 
-echo "hello"
+# echo "hello"
 
-listing=('tx','test2')
+#alternative command to run the backup
+# listing=('tx','test2')
+# for arg in "${listing[@]}" 
+# do
+#   echo "$arg"
+#   gcloud bigtable backups create "$arg" --instance=solana-ledger \
+#   --cluster=solana-ledger-c1 \
+#   --table="$arg" \
+#   --retention-period=3d
+# done
+
+
+
+
+
+
+#for project=devnet
+sudo gcloud config configurations create devent
+sudo gcloud config set account bigtable-backup-read-write@solana-devnet.iam.gserviceaccount.com
+sudo gcloud config set project solana-devnet
+sudo gcloud config configurations list
+
+#adding the path to the "GOOGLE_APPLICATION_CREDENTIALS" and also authenticating the service account
+export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/devnet_bt_readwrite.json
+gcloud auth activate-service-account bigtable-backup-read-write@solana-devnet.iam.gserviceaccount.com \
+--key-file=/home/joe/devnet_bt_readwrite.json
+
+#command to tests whether this Backup exists
+gcloud bigtable backups exists
+
+#command to list the tables inside the bigtable instanace
+listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
+
+#command to loop over the "$arg" in the "$listing" variable & create the backup for the tables inside the devnet bigtable instance
 for arg in "${listing[@]}" 
 do
-  echo "$arg"
-  gcloud bigtable backups create "$arg" --instance=solana-ledger \
-  --cluster=solana-ledger-c1 \
-  --table="$arg" \
-  --retention-period=3d
-done
-
-
-# for arg in "${(listing}"; do
-#   echo $arg
-#   gcloud bigtable backups create $arg --instance=solana-ledger \
-#   --cluster=solana-ledger-c1 \
-#   --table=$arg \
-#   --retention-period=3d
-#   done
-  
-#command to loop over the "$arg" in the "$listing" variable
-
-# #command to create the bigtable backup
-
-
-# gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
-# --cluster=solana-ledger-c1 \
-# --table=test2 \
-# --retention-period=3d
-
-#command to create the same bigtable backup instance for different tables 
-# gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
-# --cluster=solana-ledger-c1 \
-# --table=test2 \
-# --retention-period=3d
+  for args in $arg; do
+    echo "$args"
+    gcloud bigtable backups create "$args" --instance=solana-ledger \
+    --cluster=solana-ledger-c1 \
+    --table="$args" \
+    --retention-period=3d
+    done
+  done
 
 
 
-# #for project=devnet
-# sudo gcloud config set account bigtable-backup-read-write@solana-devnet.iam.gserviceaccount.com
-# sudo gcloud config set project solana-devnet
+
+
+# #for project=mainnet-beta
+# sudo gcloud config configurations create mainnet-beta
+# sudo gcloud config set account bigtable-backup-read-write@mainnet-beta.iam.gserviceaccount.com
+# sudo gcloud config set project mainnet-beta
 # sudo gcloud config configurations list
 
 # #adding the path to the "GOOGLE_APPLICATION_CREDENTIALS" and also authenticating the service account
-# export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/devnet_bt_readwrite.json
-# gcloud auth activate-service-account bigtable-backup-read-write@solana-devnet.iam.gserviceaccount.com \
-# --key-file=/home/joe/devnet_bt_readwrite.json
+# export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/mainnet-beta_bt_readwrite.json
+# gcloud auth activate-service-account bigtable-backup-read-write@mainnet-beta.iam.gserviceaccount.com \
+# --key-file=/home/joe/mainnet-beta_bt_readwrite.json
 
 # #command to tests whether this Backup exists
-# # gcloud bigtable backups exists
+# gcloud bigtable backups exists
 
-# #command to create the bigtable backup
-# gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
-# --cluster=solana-ledger-c1 \
-# --table=tx \
-# --retention-period=3d
+# #command to list the tables inside the bigtable instanace
+# listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
 
-
-
+# #command to loop over the "$arg" in the "$listing" variable & create the backup for the tables inside the devnet bigtable instance
+# for arg in "${listing[@]}" 
+# do
+#   for args in $arg; do
+#     echo "$args"
+#     gcloud bigtable backups create "$args" --instance=solana-ledger \
+#     --cluster=solana-ledger-c1 \
+#     --table="$args" \
+#     --retention-period=3d
+#     done
+#   done
 
 
 
