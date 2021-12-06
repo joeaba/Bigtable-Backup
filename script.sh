@@ -99,12 +99,19 @@ gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.
 #command to tests whether this Backup exists
 # gcloud bigtable backups exists
 
+#command to list the tables inside the bigtable instanace
+listing = gcloud bigtable backups list --instance=solqna-ledger \
+--cluster=solana-ledger-c1
 
-#command to create the bigtable backup
-gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
---cluster=solana-ledger-c1 \
---table=tx \
---retention-period=3d
+for arg in "${listing}"; do
+    echo "$arg"
+  done
+
+# #command to create the bigtable backup
+# gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
+# --cluster=solana-ledger-c1 \
+# --table=tx \
+# --retention-period=3d
 
 # gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
 # --cluster=solana-ledger-c1 \
@@ -119,24 +126,24 @@ gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
 
 
 
-#for project=devnet
-sudo gcloud config set account bigtable-backup-read-write@solana-devnet.iam.gserviceaccount.com
-sudo gcloud config set project solana-devnet
-sudo gcloud config configurations list
+# #for project=devnet
+# sudo gcloud config set account bigtable-backup-read-write@solana-devnet.iam.gserviceaccount.com
+# sudo gcloud config set project solana-devnet
+# sudo gcloud config configurations list
 
-#adding the path to the "GOOGLE_APPLICATION_CREDENTIALS" and also authenticating the service account
-export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/devnet_bt_readwrite.json
-gcloud auth activate-service-account bigtable-backup-read-write@solana-devnet.iam.gserviceaccount.com \
---key-file=/home/joe/devnet_bt_readwrite.json
+# #adding the path to the "GOOGLE_APPLICATION_CREDENTIALS" and also authenticating the service account
+# export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/devnet_bt_readwrite.json
+# gcloud auth activate-service-account bigtable-backup-read-write@solana-devnet.iam.gserviceaccount.com \
+# --key-file=/home/joe/devnet_bt_readwrite.json
 
-#command to tests whether this Backup exists
-# gcloud bigtable backups exists
+# #command to tests whether this Backup exists
+# # gcloud bigtable backups exists
 
-#command to create the bigtable backup
-gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
---cluster=solana-ledger-c1 \
---table=tx \
---retention-period=3d
+# #command to create the bigtable backup
+# gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
+# --cluster=solana-ledger-c1 \
+# --table=tx \
+# --retention-period=3d
 
 
 
