@@ -104,13 +104,16 @@ listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
 
 for arg in "${listing}"; do
     echo "$arg"
+    gcloud bigtable backups create "$arg" --instance=solana-ledger \
+    --cluster=solana-ledger-c1 \
+    --table="$arg" \
+    --retention-period=3d
   done
+  
+#command to loop over the "$arg" in the "$listing" variable
 
 # #command to create the bigtable backup
-# gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
-# --cluster=solana-ledger-c1 \
-# --table=tx \
-# --retention-period=3d
+
 
 # gcloud bigtable backups create solana-bigtable-backup --instance=solana-ledger \
 # --cluster=solana-ledger-c1 \
