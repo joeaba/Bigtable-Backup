@@ -103,10 +103,10 @@ gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.
 listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
 
 for arg in "${listing}"; do
-    echo "$arg"
-    gcloud bigtable backups create "$arg" --instance=solana-ledger \
+    echo $arg
+    gcloud bigtable backups create $arg --instance=solana-ledger \
     --cluster=solana-ledger-c1 \
-    --table="$arg" \
+    --table=$arg \
     --retention-period=3d
   done
   
