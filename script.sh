@@ -19,6 +19,7 @@ sudo apt-get update -y
 #     echo "google-cloud-sdk is previously installed on this system"
 #   fi
 
+sudo gcloud config configurations create tour-de-sol
 gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com
 echo "gcloud config set account bigtable-backup-read-write@tour-de-sol.iam.gserviceaccount.com"
 gcloud config set project tour-de-sol
@@ -97,7 +98,7 @@ gcloud auth activate-service-account bigtable-backup-read-write@tour-de-sol.iam.
 
 
 #command to tests whether this Backup exists
-gcloud bigtable backups exists
+gcloud bigtable backups list --instances=solana-ledger
 
 #command to list the tables inside the bigtable instanace
 listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
@@ -145,7 +146,7 @@ gcloud auth activate-service-account bigtable-backup-read-write@solana-devnet.ia
 --key-file=/home/joe/devnet_bt_readwrite.json
 
 #command to tests whether this Backup exists
-gcloud bigtable backups exists
+gcloud bigtable backups list --instances=solana-ledger
 
 #command to list the tables inside the bigtable instanace
 listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
@@ -166,34 +167,34 @@ do
 
 
 
-# #for project=mainnet-beta
-# sudo gcloud config configurations create mainnet-beta
-# sudo gcloud config set account bigtable-backup-read-write@mainnet-beta.iam.gserviceaccount.com
-# sudo gcloud config set project mainnet-beta
-# sudo gcloud config configurations list
+#for project=mainnet-beta
+sudo gcloud config configurations create mainnet-beta
+sudo gcloud config set account bigtable-backup-read-write@mainnet-beta.iam.gserviceaccount.com
+sudo gcloud config set project mainnet-beta
+sudo gcloud config configurations list
 
-# #adding the path to the "GOOGLE_APPLICATION_CREDENTIALS" and also authenticating the service account
-# export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/mainnet-beta_bt_readwrite.json
-# gcloud auth activate-service-account bigtable-backup-read-write@mainnet-beta.iam.gserviceaccount.com \
-# --key-file=/home/joe/mainnet-beta_bt_readwrite.json
+#adding the path to the "GOOGLE_APPLICATION_CREDENTIALS" and also authenticating the service account
+export GOOGLE_APPLICATION_CREDENTIALS=/home/joe/mainnet-beta_bt_readwrite.json
+gcloud auth activate-service-account bigtable-backup-read-write@mainnet-beta.iam.gserviceaccount.com \
+--key-file=/home/joe/mainnet-beta_bt_readwrite.json
 
-# #command to tests whether this Backup exists
-# gcloud bigtable backups exists
+#command to tests whether this Backup exists
+gcloud bigtable backups exists
 
-# #command to list the tables inside the bigtable instanace
-# listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
+#command to list the tables inside the bigtable instanace
+listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
 
-# #command to loop over the "$arg" in the "$listing" variable & create the backup for the tables inside the devnet bigtable instance
-# for arg in "${listing[@]}" 
-# do
-#   for args in $arg; do
-#     echo "$args"
-#     gcloud bigtable backups create "$args" --instance=solana-ledger \
-#     --cluster=solana-ledger-c1 \
-#     --table="$args" \
-#     --retention-period=3d
-#     done
-#   done
+#command to loop over the "$arg" in the "$listing" variable & create the backup for the tables inside the devnet bigtable instance
+for arg in "${listing[@]}" 
+do
+  for args in $arg; do
+    echo "$args"
+    gcloud bigtable backups create "$args" --instance=solana-ledger \
+    --cluster=solana-ledger-c1 \
+    --table="$args" \
+    --retention-period=3d
+    done
+  done
 
 
 
