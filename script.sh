@@ -183,19 +183,28 @@ gcloud bigtable backups --instance=solana-ledger
 
 #command to list the tables inside the bigtable instanace
 listing=$(gcloud bigtable instances tables list --instances=solana-ledger)
+#command to list clusters in the instanace
+listing_cluster=$(gcloud bigtable clusters list --instances=solana-ledger)
 
 #command to loop over the "$arg" in the "$listing" variable & create the backup for the tables inside the devnet bigtable instance
 for arg in "${listing[@]}" 
 do
+  for args_clus in "${listing_cluster[@]}"
+  do
   for args in $arg; do
-    echo "$args"
-    gcloud bigtable backups create "$args" --instance=solana-ledger \
-    --cluster=solana-ledger-c1 \
-    --table="$args" \
-    --retention-period=3d
+    for args_cluster in $args_clus; do
+      echo "$args"
+      echo "$args_cluster"
+      echo "hello ji"
+#     gcloud bigtable backups create "$args" --instance=solana-ledger \
+#     --cluster=solana-ledger-c1 \
+#     --table="$args" \
+#     --retention-period=3d
     done
   done
-
+  done
+done
+ 
 
 
 
